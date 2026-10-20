@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krishna Patidar | Backend Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome Icons -->
@@ -78,7 +79,7 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="text-xs uppercase tracking-widest text-brand-400 font-semibold mb-2">Capabilities</h2>
-        <h3 class="text-3xl font-bold text-white">Technical Arsenal</h3>
+        <h3 class="text-3xl font-bold text-white">Technical Expertise</h3>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -219,17 +220,17 @@
   <!-- ================= PROJECTS ================= -->
   <section id="projects" class="py-20 bg-slate-900/50 border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
+      <div class="projects-heading text-center mb-16">
         <h2 class="text-xs uppercase tracking-widest text-brand-400 font-semibold mb-2">Highlights</h2>
         <h3 class="text-3xl font-bold text-white">Featured Projects</h3>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         
         <!-- Project 2 (Enterprise SAP) -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col justify-between hover:border-brand-500/50 transition">
+        <div class="project-card group relative overflow-hidden bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col justify-between">
           <div>
-            <div class="text-cyan-400 text-3xl mb-4"><i class="fa-solid fa-receipt"></i></div>
+            <div class="project-icon text-cyan-400 text-3xl mb-4"><i class="fa-solid fa-receipt"></i></div>
             <h4 class="text-lg font-bold text-white mb-2">SAP Reimbursement Engine</h4>
             <p class="text-slate-400 text-sm mb-4 leading-relaxed">
               Automated invoice validation and settlement service with dynamic WBS/Company code generation and scheduled batch retry mechanisms.
@@ -243,9 +244,9 @@
         </div>
 
         <!-- Project 3 (Social backend) -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col justify-between hover:border-brand-500/50 transition">
+        <div class="project-card group relative overflow-hidden bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col justify-between">
           <div>
-            <div class="text-purple-400 text-3xl mb-4"><i class="fa-solid fa-comments"></i></div>
+            <div class="project-icon text-purple-400 text-3xl mb-4"><i class="fa-solid fa-comments"></i></div>
             <h4 class="text-lg font-bold text-white mb-2">Real-time Social Platform API</h4>
             <p class="text-slate-400 text-sm mb-4 leading-relaxed">
               Scalable Django backend with ephemeral stories, WebSocket-driven chat, Elasticsearch indexing, and gamified streak rewards.
@@ -255,6 +256,23 @@
             <span class="text-xs text-purple-300 font-mono">Django Channels</span>
             <span class="text-xs text-purple-300 font-mono">Elasticsearch</span>
             <span class="text-xs text-purple-300 font-mono">Redis</span>
+          </div>
+        </div>
+
+        <!-- Project 4 (Helpdesk) -->
+        <div class="project-card group relative overflow-hidden bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="project-icon text-emerald-400 text-3xl mb-4"><i class="fa-solid fa-headset"></i></div>
+            <h4 class="text-lg font-bold text-white mb-2">Helpdesk Management System</h4>
+            <p class="text-slate-400 text-sm mb-5 leading-relaxed">
+              A support platform connecting client organizations with company staff, with staff able to manage tickets on behalf of customers who contact them through other channels.
+            </p>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2 pt-4 border-t border-slate-800/80">
+            <span class="text-xs text-emerald-300 font-mono">IT support ticketing</span>
+            <span class="text-xs text-emerald-300 font-mono">Audit History</span>
+            <span class="text-xs text-emerald-300 font-mono">Email Notifications</span>
+            <span class="text-xs text-emerald-300 font-mono">File Attachments</span>
           </div>
         </div>
 
@@ -344,7 +362,7 @@
 
     .skill-tag,
     .future-card,
-    #projects .grid > div,
+    #projects .project-card,
     #education .grid > div {
       transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
     }
@@ -355,17 +373,52 @@
     }
 
     .future-card:hover,
-    #projects .grid > div:hover,
     #education .grid > div:hover {
       transform: translateY(-5px);
       border-color: rgb(99 102 241 / 65%);
       box-shadow: 0 18px 40px rgb(2 6 23 / 35%);
     }
 
+    .project-card {
+      transition: transform 320ms cubic-bezier(.2, .7, .2, 1), border-color 320ms ease, box-shadow 320ms ease;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #818cf8, #22d3ee, transparent);
+      opacity: .45;
+      transform: scaleX(.55);
+      transition: transform 320ms ease, opacity 320ms ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgb(129 140 248 / 75%);
+      box-shadow: 0 24px 55px rgb(2 6 23 / 55%), 0 0 28px rgb(99 102 241 / 12%);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .project-icon {
+      transition: transform 320ms cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .project-card:hover .project-icon {
+      transform: translateY(-3px) scale(1.12) rotate(-4deg);
+    }
+
     .reveal-ready {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 600ms ease, transform 600ms cubic-bezier(.2, .7, .2, 1);
+      transform: translateY(30px) scale(.985);
+      transition: opacity 700ms ease, transform 700ms cubic-bezier(.2, .7, .2, 1);
     }
 
     .reveal-ready.is-visible {
@@ -401,7 +454,7 @@
 
   <script>
     const revealItems = document.querySelectorAll(
-      '#skills .grid > div, #experience .relative.group, #projects .grid > div, #future-scope article, #education .grid > div'
+      '#skills .grid > div, #experience .relative.group, #projects .projects-heading, #projects .project-card, #future-scope article, #education .grid > div'
     );
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
